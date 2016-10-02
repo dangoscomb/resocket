@@ -1,0 +1,50 @@
+{
+  "name": "resocket",
+  "version": "1.0.0",
+  "description": "A socket.io/websockets wrapper for react and redux apps",
+  "main": "build/index.js",
+  "scripts": {
+    "commit": "git-cz",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext js,jsx src test",
+    "prebuild": "rimraf build",
+    "build": "babel --copy-files --out-dir build src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laumair/resocket.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "socket.io"
+  ],
+  "files": [
+    "build",
+    "README.md"
+  ],
+  "author": "Umair Sarfraz <aquadestructor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/laumair/resocket/issues"
+  },
+  "homepage": "https://github.com/laumair/resocket#readme",
+  "devDependencies": {
+    "babel-cli": "6.16.0",
+    "babel-preset-airbnb": "2.1.1",
+    "commitizen": "2.8.6",
+    "cz-conventional-changelog": "1.2.0",
+    "eslint": "3.7.0",
+    "eslint-config-airbnb": "12.0.0",
+    "eslint-plugin-import": "2.0.0",
+    "eslint-plugin-jsx-a11y": "2.2.2",
+    "eslint-plugin-react": "6.3.0",
+    "rimraf": "2.5.4"
+  },
+  "dependencies": {
+    "lodash": "4.16.2"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
+  }
+}

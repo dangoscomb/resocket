@@ -42,7 +42,8 @@
     "rimraf": "2.5.4"
   },
   "dependencies": {
-    "lodash": "4.16.2"
+    "lodash": "4.16.2",
+    "socket.io-client": "1.5.0"
   },
   "czConfig": {
     "path": "node_modules/cz-conventional-changelog"

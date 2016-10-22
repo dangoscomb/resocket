@@ -10,7 +10,7 @@
     "test:watch": "npm run test -- -w",
     "test": "mocha test/*.spec.js --compilers js:babel-register",
     "test:once": "nyc cover -x *.spec.js _mocha -- test/*.spec.js -R spec --compilers js:babel-register",
-    "report-coverage": "nyc report --reporter=lcov | codecov",
+    "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov",
     "lint": "eslint --ext js,jsx src test",
     "prebuild": "rimraf build",
     "build": "babel --copy-files --out-dir build src",

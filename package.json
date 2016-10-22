@@ -1,7 +1,7 @@
 {
   "name": "resocket",
   "version": "1.0.0",
-  "description": "A socket.io/websockets wrapper for react and redux apps",
+  "description": "A socket.io wrapper and middleware for react and redux apps",
   "main": "build/index.js",
   "scripts": {
     "commit": "git-cz",

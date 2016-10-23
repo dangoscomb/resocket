@@ -1,6 +1,6 @@
 {
   "name": "resocket",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "A socket.io wrapper and middleware for react and redux apps",
   "main": "build/index.js",
   "scripts": {

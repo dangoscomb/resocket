@@ -61,7 +61,7 @@ reconnectionDelay: 1000
 You can ovveride them simply by passing for example:
 
 ```javascript
-Resocket.connect(http://localhost:3000, {auth: false});
+Resocket.connect('http://localhost:3000', {auth: false});
 ```
 
 **Note:** On passing `auth: false` Resocket won't allow a connection to be established. This is useful when you want to allow a connection to be only built after Login or some basic authentication.

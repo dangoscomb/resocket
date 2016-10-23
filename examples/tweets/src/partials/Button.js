@@ -1,12 +1,7 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class Button extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
-  getDefaultStyles() {
+  static getDefaultStyles() {
     return {
       boxSizing: 'border-box',
       minHeight: '38px',
@@ -19,12 +14,12 @@ export default class Button extends Component {
       border: '#1EA6E0',
       borderRadius: '5px',
       fontSize: '15px',
-      textTransform: 'uppercase'
+      textTransform: 'uppercase',
     };
   }
 
   render() {
-    const styles = this.getDefaultStyles();
+    const styles = Button.getDefaultStyles();
 
     return (
       <button
@@ -36,3 +31,7 @@ export default class Button extends Component {
     );
   }
 }
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+};

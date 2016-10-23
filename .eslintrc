@@ -2,6 +2,7 @@
   "extends": "airbnb",
   "root": true,
   "env": {
+    "browser": true,
     "node": true,
     "mocha": true
   },
@@ -15,6 +16,7 @@
     "no-underscore-dangle": [2, {
       "allowAfterThis": true
     }],
-    "import/no-extraneous-dependencies": [2, { "devDependencies": true }]
+    "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }

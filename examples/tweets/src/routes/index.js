@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, IndexRoute} from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 import Layout from '../core/Layout';
 import Tweets from '../tweets/Tweets.container';
 

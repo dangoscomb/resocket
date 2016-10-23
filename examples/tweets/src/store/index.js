@@ -1,9 +1,9 @@
-import {createStore, applyMiddleware} from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
+import Resocket, { createResocketMiddleware } from 'resocket';
 import emitEvents from '../global/types';
 import rootReducer from '../reducers';
-import thunk from 'redux-thunk';
-import Resocket, {createResocketMiddleware} from '../resocket';
 
 const socket = Resocket.connect('http://localhost:9000');
 const resocketMiddleware = createResocketMiddleware(socket, emitEvents);

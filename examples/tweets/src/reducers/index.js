@@ -1,8 +1,8 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 import tweets from '../tweets/tweets.reducer';
 
 const reducers = combineReducers({
-  tweets
+  tweets,
 });
 
 const rootReducer = (state, action) => reducers(state, action);

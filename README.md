@@ -5,6 +5,7 @@
 [![MIT License](https://img.shields.io/npm/l/resocket.svg)](http://opensource.org/licenses/MIT)
 [![Coverage Status](https://coveralls.io/repos/github/laumair/resocket/badge.svg?branch=master)](https://coveralls.io/github/laumair/resocket?branch=master)
 [![npm](https://img.shields.io/npm/dt/resocket.svg)](https://www.npmjs.com/package/resocket)
+
 Resocket is a `socket.io` wrapper and middleware for `React` and `Redux` applications.
 
 It helps you abstract away all the `socket.io` implementations in your app. 

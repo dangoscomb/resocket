@@ -2,7 +2,7 @@ import io from 'socket.io-client';
 import {
   isArray,
   isString,
-  errorMessages
+  errorMessages,
 } from './helpers';
 
 /* eslint-disable no-use-before-define */

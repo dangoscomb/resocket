@@ -2,9 +2,10 @@ import {
   isArray,
   isString,
   types,
-  errorMessages
+  errorMessages,
 } from './helpers';
 
+/* eslint-disable no-console */
 
 function createResocketMiddleware(socket, toEmit) {
   return ({ dispatch }) => next => action => { // eslint-disable-line arrow-parens

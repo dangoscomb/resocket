@@ -12,6 +12,7 @@ export default class Button extends Component {
       minHeight: '38px',
       minWidth: '180px',
       padding: '0 15px',
+      margin: '10px',
       cursor: 'pointer',
       color: 'white',
       backgroundColor: '#1EA6E0',

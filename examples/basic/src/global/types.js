@@ -1,4 +1,3 @@
 export default [
-  'message',
-  'number'
+  'tweet'
 ];

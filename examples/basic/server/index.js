@@ -6,11 +6,6 @@ io.on('connection', function(socket) {
 
   console.log('New socket connected');
 
-  // socket.on('EMIT_MESSAGE', function(data) {
-  //     console.log(data);
-  //     console.log('Receiving message from client');
-  // });
-
   var sportsTweets = [
     {
       type: 'UPDATE_SPORTS_TWEETS',
@@ -31,13 +26,20 @@ io.on('connection', function(socket) {
     }
   ];
 
+  socket.on('tweet', function(data) {
+    io.emit(data.type, {
+      type: 'UPDATE_' + data.type,
+      payload: data.tweet
+    });
+  });
+
   function update() {
     sportsTweets.forEach(function(val) {
-      socket.emit('SPORTS_TWEETS', val);
+      io.emit('SPORTS_TWEETS', val);
     });
 
     techTweets.forEach(function(val) {
-      socket.emit('TECH_TWEETS', val);
+      io.emit('TECH_TWEETS', val);
     });
   }
 
@@ -53,5 +55,5 @@ io.on('connection', function(socket) {
 });
 
 http.listen(9000, function() {
-  console.log(`Connection established at: 9000`);
+  console.log(`Connection established at port: 9000`);
 });

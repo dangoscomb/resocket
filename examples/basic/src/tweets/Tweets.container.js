@@ -12,8 +12,7 @@ const mapDispatchToProps = dispatch => ({
   addListenersTo: (events) => dispatch(actions.addListenersTo(events)),
   removeSelected: events => dispatch(actions.removeSelected(events)),
   removeAll: () => dispatch(actions.removeAll()),
-  sendMessage: message => dispatch(actions.sendMessage(message)),
-  sendNumber: number => dispatch(actions.sendNumber(number))
+  addNewTweet: tweet => dispatch(actions.addNewTweet(tweet))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tweets);

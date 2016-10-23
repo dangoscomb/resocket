@@ -18,14 +18,9 @@ export function removeAll() {
   };
 }
 
-export function sendMessage(payload) {
+export function addNewTweet(payload) {
   return dispatch => {
-    dispatch(actions.sendMessage(payload));
+    dispatch(actions.addNewTweet(payload));
   };
 }
 
-export function sendNumber(payload) {
-  return dispatch => {
-    dispatch(actions.sendNumber(payload));
-  };
-}

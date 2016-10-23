@@ -20,16 +20,9 @@ export function removeAllListeners() {
   };
 }
 
-export function sendMessage(payload) {
+export function addNewTweet(payload) {
   return {
-    type: Types.MESSAGE,
-    payload
-  };
-}
-
-export function sendNumber(payload) {
-  return {
-    type: Types.NUMBER,
+    type: Types.TWEET,
     payload
   };
 }

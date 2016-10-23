@@ -14,6 +14,7 @@ function createResocketMiddleware(socket, toEmit) {
     }
 
     if (action.type === types.REMOVE_LISTENER_FROM || action.type === types.REMOVE_LISTENERS_FROM) {
+      console.log('HERE');
       if (isArray(action.payload)) {
         action.payload.forEach((event) => {
           socket.removeListener(event);
@@ -26,6 +27,7 @@ function createResocketMiddleware(socket, toEmit) {
     }
 
     if (action.type === types.ADD_LISTENER_TO || action.type === types.ADD_LISTENERS_TO) {
+      console.log('HERE');
       if (isArray(action.payload)) {
         action.payload.forEach((e) => {
           socket.on(e, dispatch);
@@ -44,6 +46,8 @@ function createResocketMiddleware(socket, toEmit) {
     if (isArray(toEmit)) {
       toEmit.forEach((event) => {
         if (event === action.type) {
+          console.log(event);
+          console.log(action);
           socket.emit(event, action.payload);
         }
       });

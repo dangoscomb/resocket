@@ -1,5 +1,6 @@
 import io from 'socket.io-client';
 import chai, { expect } from 'chai';
+import has from 'lodash.has';
 import noop from 'lodash.noop';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -49,6 +50,13 @@ describe('Resocket', () => {
       expect(Resocket.socket.on).to.have.been.called;
       done();
     });
+
+    it('should not get called if socket is null', () => {
+      Resocket.socket = null;
+      Resocket.on('event', noop);
+      const { socket } = Resocket;
+      expect(has(socket, 'on')).to.equal(false);
+    });
   });
 
   describe('#emit', () => {
@@ -58,6 +66,13 @@ describe('Resocket', () => {
       Resocket.emit('event', 'data');
       expect(Resocket.socket.emit).to.have.been.calledWith('event', 'data');
       done();
+    });
+
+    it('should not call if socket is null', () => {
+      Resocket.socket = null;
+      Resocket.emit('event', 'data');
+      const { socket } = Resocket;
+      expect(has(socket, 'emit')).to.equal(false);
     });
   });
 
@@ -86,15 +101,29 @@ describe('Resocket', () => {
       expect(console.error).to.have.been.calledWith('Event names should either be an array of strings or just a string.');
       done();
     });
+
+    it('should not call if socket is null', () => {
+      Resocket.socket = null;
+      Resocket.removeListener('event');
+      const { socket } = Resocket;
+      expect(has(socket, 'removeListener')).to.equal(false);
+    });
   });
 
-  describe('#removeListeners', () => {
+  describe('#removeAllListeners', () => {
     it('should call removeAllListeners method of socket', (done) => {
       Resocket.socket = new SocketMock();
       Resocket.socket = Object.assign({}, Resocket.socket, { removeAllListeners: sandbox.spy() });
       Resocket.removeAllListeners();
       expect(Resocket.socket.removeAllListeners).to.have.been.called;
       done();
+    });
+
+    it('should not call if socket is null', () => {
+      Resocket.socket = null;
+      Resocket.removeAllListeners();
+      const { socket } = Resocket;
+      expect(has(socket, 'removeAllListeners')).to.equal(false);
     });
   });
 });

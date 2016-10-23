@@ -26,7 +26,7 @@ all you need is to import `createResocketMiddleware`. Resocket only takes a few 
 ### Usage
 
 **Middleware**
-```
+```javascript
 import Resocket, { createResocketMiddleware } from 'resocket';
 
 const socket = Resocket.connect(url, opts);
@@ -36,8 +36,9 @@ const middleware = applyMiddleware(thunk, resocketMiddleware);
 ```
 
 **Resocket**
+
 All you need to do is to call the `connect` method on Resocket and use anywhere across your React-redux app.
-```
+```javascript
 import { render } from 'react-dom';
 import Resocket from 'resocket'
 
@@ -50,7 +51,7 @@ render();
 - url: Any url for establishing a socket connection e.g: `http://localhost:9000`
 - opts: `optional` These are optional parameters allowed. 
 Default parameters are:
-```
+```javascript
 auth: true, 
 reconnection: true, 
 reconnectionDelay: 1000        
@@ -58,7 +59,7 @@ reconnectionDelay: 1000
 
 You can ovveride them simply by passing for example:
 
-```
+```javascript
 Resocket.connect(http://localhost:3000, {auth: false});
 ```
 
@@ -67,7 +68,7 @@ Resocket.connect(http://localhost:3000, {auth: false});
 ### How to
 In your **container** component, you can do:
 
-```
+```javascript
 const mapDispatchToProps = dispatch => ({
   newMessage: message => dispatch(actions.newMessage(message))
   //...
@@ -76,7 +77,7 @@ const mapDispatchToProps = dispatch => ({
 
 You can emit in your actions:
 
-```
+```javascript
 export function newMessage(payload) {
   return dispatch => {
     dispatch(actions.someAction());
@@ -88,7 +89,7 @@ export function newMessage(payload) {
 
 Or you can listen to events and dispatch redux actions on the basis of that:
 
-```
+```javascript
 export function alertNewMessage() {
   return dispatch => {
     Resocket.on('message', message => {
@@ -104,7 +105,7 @@ Every time you receive a new message via socket, `actions.updateMessages()` woul
 **Usage with lifecycle methods**
 You can use it with `React life cycle methods` to remove some specific listener or remove all listeners.
 
-```
+```javascript
 componentWillUnmount() {
     this.props.removeListener('message'); 
 }
@@ -118,7 +119,7 @@ const mapDispatchToProps = dispatch => ({
 
 And then, in your actions you can simply 
 
-```
+```javascript
 export function removeListener(event) {
   return dispatch => {
     Resocket.removeListener(event);
@@ -136,10 +137,10 @@ When this is called, you would not get any message hence any action dispatch fro
 
 #### Server
 
-```
+```javascript
 io.emit('TECH_TWEETS', {
-type: 'UPDATE_TECH_TWEETS,
-payload: {} // some data
+  type: 'UPDATE_TECH_TWEETS',
+  payload: {} // some data
 });
 ```
 
@@ -147,7 +148,7 @@ payload: {} // some data
 
 `resocketMiddleware` takes care of the rest.
 
-```
+```javascript
 case Types.UPDATE_SPORTS_TWEETS:
       return {
         ...state,
@@ -165,7 +166,7 @@ ADD_LISTENER_TO or ADD_LISTENERS_TO
 As the name suggest, you would have to pass either a string or an array of strings as event names and `resocketMiddleware` would start listening to the events passed as arguments.
 
 **Example**
-```
+```javascript
 this.props.addListenersTo(['EVENT_1', 'EVENT_2']);
 
 ```
@@ -188,8 +189,8 @@ this.props.removeListener('EVENT_1');
 ```
 
 where in your actions
-```
-export functions removeListener(payload) {
+```javascript
+export function removeListener(payload) {
     return dispatch => {
         type: 'REMOVE_LISTENER_FROM,
         payload
@@ -201,14 +202,14 @@ export functions removeListener(payload) {
 You can simply emit an action by calling the eventNamesList passed as a second argument while instantiating resocketMiddleware.
 
 
-```
+```javascript
 
 const resocketMiddleware = createResocketMiddleware(socket, ['tweet']);
 
 ```
 In your actions, simply
 
-```
+```javascript
 export function addNewTweet(payload) {
   return (dispatch) => {
     dispatch({ type: 'tweet', payload });
@@ -219,7 +220,7 @@ export function addNewTweet(payload) {
 
 While on server
 
-```
+```javascript
 socket.on('tweet', function(data) {
     io.emit(data.type, {
       type: 'UPDATE_' + data.type,

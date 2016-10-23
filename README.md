@@ -192,7 +192,7 @@ where in your actions
 ```javascript
 export function removeListener(payload) {
     return dispatch => {
-        type: 'REMOVE_LISTENER_FROM,
+        type: 'REMOVE_LISTENER_FROM',
         payload
     };
 }

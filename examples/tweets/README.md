@@ -50,7 +50,7 @@ const middleware = applyMiddleware(logger(), thunk, resocketMiddleware);
 
 And that is all you need to get going with using `sockets` all over your app.
 
-**Note:** 
+**Note:**
 List of events/types to emit to should generally be exported. They should exactly match the action types on which you want to emit a specific event.
 
 Please see [Resocket documentation](https://github.com/laumair/resocket/blob/master/README.md) for further API usage.

@@ -52,7 +52,7 @@ render();
 ```
 
 - url: Any url for establishing a socket connection e.g: `http://localhost:9000`
-- opts: `optional` These are optional parameters allowed.
+- opts: `optional` These are the default optional parameters.
 Default parameters are:
 ```javascript
 auth: true,
@@ -60,10 +60,16 @@ reconnection: true,
 reconnectionDelay: 1000        
 ```
 
-You can ovveride them simply by passing for example:
+You can overide them simply by passing for example:
 
 ```javascript
 Resocket.connect('http://localhost:3000', {auth: false});
+```
+
+You can also extend the options object with socket.io accepted parameters:
+
+```javascript
+Resocket.connect('http://localhost:3000', {transports: ['polling']});
 ```
 
 **Note:** On passing `auth: false` Resocket won't allow a connection to be established. This is useful when you want to allow a connection to be only built after Login or some basic authentication.

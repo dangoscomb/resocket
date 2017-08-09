@@ -17,14 +17,14 @@ const Resocket = {
   socket: null,
 };
 
-const SocketDefaults = {
-  auth: true,
-  reconnection: true,
-  reconnectionDelay: 1000,
-};
-
 function connect(params, opts) {
-  const defaults = Object.assign({}, SocketDefaults, opts);
+  const socketDefaults = {
+    auth: true,
+    reconnection: true,
+    reconnectionDelay: 1000,
+  };
+
+  const defaults = Object.assign({}, socketDefaults, opts);
 
   if (params && defaults.auth) {
     Resocket.socket = io.connect(params, defaults);

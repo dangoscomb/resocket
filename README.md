@@ -60,7 +60,7 @@ reconnection: true,
 reconnectionDelay: 1000        
 ```
 
-You can overide them simply by passing for example:
+You can override them simply by passing for example:
 
 ```javascript
 Resocket.connect('http://localhost:3000', {auth: false});
